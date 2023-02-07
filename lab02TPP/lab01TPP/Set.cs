@@ -43,5 +43,22 @@ namespace lab02TPP
          * }
          * }
          */
+
+        public static Set operator| (Set a, Set b)
+        {
+            Set c = new Set();
+            for(int i = 0; i < a.list.NumberOfElements; i++)
+            {
+                c.list.Add(a.list.GetElement(i));
+            }
+            for(int i = 0; i < b.list.NumberOfElements; i++)
+            {
+                if (!c.list.Contains(b.list.GetElement(i)))
+                {
+                    c.list.Add(b.list.GetElement(i));
+                }
+            }
+            return c;
+        }
     }
 }
