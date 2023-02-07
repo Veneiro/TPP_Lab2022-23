@@ -1,0 +1,12 @@
+C:\Users\mateo\Desktop\Universidad\TPP Lab\Lab02LI4\IntExtensionMethods\bin\Debug\net5.0\IntExtensionMethods.deps.json
+C:\Users\mateo\Desktop\Universidad\TPP Lab\Lab02LI4\IntExtensionMethods\bin\Debug\net5.0\IntExtensionMethods.dll
+C:\Users\mateo\Desktop\Universidad\TPP Lab\Lab02LI4\IntExtensionMethods\bin\Debug\net5.0\IntExtensionMethods.pdb
+C:\Users\mateo\Desktop\Universidad\TPP Lab\Lab02LI4\IntExtensionMethods\obj\Debug\net5.0\IntExtensionMethods.csproj.AssemblyReference.cache
+C:\Users\mateo\Desktop\Universidad\TPP Lab\Lab02LI4\IntExtensionMethods\obj\Debug\net5.0\IntExtensionMethods.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mateo\Desktop\Universidad\TPP Lab\Lab02LI4\IntExtensionMethods\obj\Debug\net5.0\IntExtensionMethods.AssemblyInfoInputs.cache
+C:\Users\mateo\Desktop\Universidad\TPP Lab\Lab02LI4\IntExtensionMethods\obj\Debug\net5.0\IntExtensionMethods.AssemblyInfo.cs
+C:\Users\mateo\Desktop\Universidad\TPP Lab\Lab02LI4\IntExtensionMethods\obj\Debug\net5.0\IntExtensionMethods.csproj.CoreCompileInputs.cache
+C:\Users\mateo\Desktop\Universidad\TPP Lab\Lab02LI4\IntExtensionMethods\obj\Debug\net5.0\IntExtensionMethods.dll
+C:\Users\mateo\Desktop\Universidad\TPP Lab\Lab02LI4\IntExtensionMethods\obj\Debug\net5.0\refint\IntExtensionMethods.dll
+C:\Users\mateo\Desktop\Universidad\TPP Lab\Lab02LI4\IntExtensionMethods\obj\Debug\net5.0\IntExtensionMethods.pdb
+C:\Users\mateo\Desktop\Universidad\TPP Lab\Lab02LI4\IntExtensionMethods\obj\Debug\net5.0\ref\IntExtensionMethods.dll
