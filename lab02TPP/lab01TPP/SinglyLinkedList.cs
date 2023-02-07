@@ -150,7 +150,7 @@ namespace lab02TPP
         /// </summary>
         /// <param name="index">Index of the node you want to get</param>
         /// <returns>The node of the index provided</returns>
-        public int GetElement(int index)
+        public Object GetElement(int index)
         {
             if (index < 0 || index >= NumberOfElements)
             {

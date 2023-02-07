@@ -60,5 +60,22 @@ namespace lab02TPP
             }
             return c;
         }
+
+        public static Set operator& (Set a, Set b)
+        {
+            Set c = new Set();
+            for(int i = 0; i < b.list.NumberOfElements; i++)
+            {
+                String n = (String)b.list.GetElement(i);
+                if (a.list.Contains(n))
+                {
+                    c.list.Add(n);
+                }
+            }
+            return c;
+        }
+
+        // Diferencia, los elementos de la unión que no están en la intersección
+        // 
     }
 }
