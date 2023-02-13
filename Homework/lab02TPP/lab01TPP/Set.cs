@@ -96,14 +96,24 @@ namespace lab02TPP
         /// <summary>
         /// Redefinition of the '^' operator
         /// </summary>
+        public static Set operator -(Set a, Set b)
+        {
+
+        }
 
         /// <summary>
         /// Redefinition of the NumberOfElements property
         /// </summary>
+        public static Set operator -(Set a, Set b)
+        {
 
+        }
         /// <summary>
         /// Redefinition of the ToString property
         /// </summary>
+        public static Set operator -(Set a, Set b)
+        {
 
+        }
     }
 }
