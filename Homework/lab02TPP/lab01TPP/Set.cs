@@ -6,12 +6,18 @@ using System.Threading.Tasks;
 
 namespace lab02TPP
 {
+    /// <summary>
+    /// Definition for the Set class
+    /// </summary>
     internal class Set
     {
         private SinglyLinkedList list = new SinglyLinkedList();
         static Set set = new Set();
         //set+"hola";
 
+        /// <summary>
+        /// Redefine of the '+' operator
+        /// </summary>
         public static SinglyLinkedList operator+(Set a, Object data)
         {
             if (!set.list.Contains(data))
@@ -21,12 +27,18 @@ namespace lab02TPP
             return set.list;
         }
 
+        /// <summary>
+        /// Redefine of the '-' operator
+        /// </summary>
         public static SinglyLinkedList operator- (Set a, int pos)
         {
             set.list.Remove(pos);
             return set.list;
         }
 
+        /// <summary>
+        /// Redefine of the '[]' operator
+        /// </summary>
         public Object this[int pos]
         {
             get
@@ -34,16 +46,10 @@ namespace lab02TPP
                 return list.GetElement(pos);
             }
         }
-        /**
-         * public bool this[Object valor]{
-         * get{
-         * if(list.Contains(valor){
-         * return true;
-         * }
-         * }
-         * }
-         */
 
+        /// <summary>
+        /// Redefinition of the '|' operator
+        /// </summary>
         public static Set operator| (Set a, Set b)
         {
             Set c = new Set();
@@ -61,6 +67,9 @@ namespace lab02TPP
             return c;
         }
 
+        /// <summary>
+        /// Redefinition of the '&' operator
+        /// </summary>
         public static Set operator& (Set a, Set b)
         {
             Set c = new Set();
@@ -76,6 +85,25 @@ namespace lab02TPP
         }
 
         // Diferencia, los elementos de la unión que no están en la intersección
-        // 
+        /// <summary>
+        /// Redefinition of the '-' operator
+        /// </summary>
+        public static Set operator- (Set a, Set b)
+        {
+
+        }
+
+        /// <summary>
+        /// Redefinition of the '^' operator
+        /// </summary>
+
+        /// <summary>
+        /// Redefinition of the NumberOfElements property
+        /// </summary>
+
+        /// <summary>
+        /// Redefinition of the ToString property
+        /// </summary>
+
     }
 }
