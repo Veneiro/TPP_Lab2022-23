@@ -1,0 +1,12 @@
+C:\Users\mateo\Desktop\Universidad\TPP Lab\Homework\lab02TPP\lab02TPPSet\bin\Debug\net5.0\lab02TPPSet.deps.json
+C:\Users\mateo\Desktop\Universidad\TPP Lab\Homework\lab02TPP\lab02TPPSet\bin\Debug\net5.0\lab02TPPSet.dll
+C:\Users\mateo\Desktop\Universidad\TPP Lab\Homework\lab02TPP\lab02TPPSet\bin\Debug\net5.0\lab02TPPSet.pdb
+C:\Users\mateo\Desktop\Universidad\TPP Lab\Homework\lab02TPP\lab02TPPSet\obj\Debug\net5.0\lab02TPPSet.csproj.AssemblyReference.cache
+C:\Users\mateo\Desktop\Universidad\TPP Lab\Homework\lab02TPP\lab02TPPSet\obj\Debug\net5.0\lab02TPPSet.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mateo\Desktop\Universidad\TPP Lab\Homework\lab02TPP\lab02TPPSet\obj\Debug\net5.0\lab02TPPSet.AssemblyInfoInputs.cache
+C:\Users\mateo\Desktop\Universidad\TPP Lab\Homework\lab02TPP\lab02TPPSet\obj\Debug\net5.0\lab02TPPSet.AssemblyInfo.cs
+C:\Users\mateo\Desktop\Universidad\TPP Lab\Homework\lab02TPP\lab02TPPSet\obj\Debug\net5.0\lab02TPPSet.csproj.CoreCompileInputs.cache
+C:\Users\mateo\Desktop\Universidad\TPP Lab\Homework\lab02TPP\lab02TPPSet\obj\Debug\net5.0\lab02TPPSet.dll
+C:\Users\mateo\Desktop\Universidad\TPP Lab\Homework\lab02TPP\lab02TPPSet\obj\Debug\net5.0\refint\lab02TPPSet.dll
+C:\Users\mateo\Desktop\Universidad\TPP Lab\Homework\lab02TPP\lab02TPPSet\obj\Debug\net5.0\lab02TPPSet.pdb
+C:\Users\mateo\Desktop\Universidad\TPP Lab\Homework\lab02TPP\lab02TPPSet\obj\Debug\net5.0\ref\lab02TPPSet.dll

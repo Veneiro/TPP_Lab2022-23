@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0PZ170kvnCIp7CcBariV5+8tc8Q2jYwe7w7SANp276G8V1aynrXqljJVXnzYKxVnd9O+NyP5QQWSiSMN9nuQZA==",
+  "dgSpecHash": "0YBVCaCfTSRF0E1sKTU3dvdl3dX5appoTHYOsDUrrobvYhDDYVqrvAIO61T0tfw4ZSF3gA/kSdmqKX3C8sHe+g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\mateo\\Desktop\\Universidad\\TPP Lab\\lab02TPP\\lab02TPP_Testing\\lab02TPP_Testing.csproj",
+  "projectFilePath": "C:\\Users\\mateo\\Desktop\\Universidad\\TPP Lab\\Homework\\lab02TPP\\lab02TPP_Testing\\lab02TPP_Testing.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mateo\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
     "C:\\Users\\mateo\\.nuget\\packages\\microsoft.codecoverage\\17.3.2\\microsoft.codecoverage.17.3.2.nupkg.sha512",

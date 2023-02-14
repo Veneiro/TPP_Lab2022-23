@@ -1,11 +1,11 @@
 ﻿using System;
 
-namespace Prueba {
+namespace P {
 
     /// <summary>
     /// Clase Persona utilizada en diversos ejemplos
     /// </summary>
-    class Person {
+    public class Person {
 
         private String nombre, apellido1, apellido2;
 

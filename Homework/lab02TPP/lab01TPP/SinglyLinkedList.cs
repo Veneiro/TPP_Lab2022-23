@@ -156,9 +156,14 @@ namespace lab02TPP
             {
                 throw new Exception("Illegal index");
             }
-            return (int)GetNode(index).GetValue();
+            return GetNode(index).GetValue();
         }
 
+        /// <summary>
+        /// Search for an element in the list and tells if it is contained in the list
+        /// </summary>
+        /// <param name="searchElem"></param>
+        /// <returns>True or False depending if the element is contained in the list or not</returns>
         public bool Contains(Object searchElem)
         {
             for(int i = 0; i < NumberOfElements; i++)

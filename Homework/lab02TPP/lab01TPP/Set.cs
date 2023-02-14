@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -88,32 +89,47 @@ namespace lab02TPP
         /// <summary>
         /// Redefinition of the '-' operator
         /// </summary>
-        public static Set operator- (Set a, Set b)
+        public static Set operator- (Set c1, Set c2)
         {
-
+            Set minus = new Set();
+            Set union = c1 | c2;
+            Set interseccion = c1 & c2;
+            for (int i = 0; i < union.list.NumberOfElements; i++)
+            {
+                Object n = union.list.GetElement(i);
+                if (!interseccion.list.Contains(n))
+                    minus.list.Add(minus.list.NumberOfElements);
+            }
+            return minus;
         }
 
         /// <summary>
         /// Redefinition of the '^' operator
         /// </summary>
-        public static Set operator -(Set a, Set b)
+        public static bool operator^ (Set a, Object o)
         {
-
+            return a.list.Contains(o);
         }
 
         /// <summary>
         /// Redefinition of the NumberOfElements property
         /// </summary>
-        public static Set operator -(Set a, Set b)
+        public int NumberOfElements
         {
-
+            get
+            {
+                return list.NumberOfElements;
+            }
         }
         /// <summary>
         /// Redefinition of the ToString property
         /// </summary>
-        public static Set operator -(Set a, Set b)
+        public override string ToString()
         {
-
+            String cadena = "";
+            for (int i = 0; i < list.NumberOfElements; i++)
+                cadena += list.GetElement(i) + "\n";
+            return cadena;
         }
     }
 }

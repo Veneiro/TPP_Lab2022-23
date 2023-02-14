@@ -5,9 +5,7 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "lab02TPP", "lab01TPP\lab02TPP.csproj", "{BD7617E3-BFA3-4CB5-B569-3B867C6108D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lab02TPP_Testing", "lab02TPP_Testing\lab02TPP_Testing.csproj", "{502DBC05-0199-4256-9ABE-E39668ED75CC}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lab02TPPSet", "lab02TPPSet\lab02TPPSet.csproj", "{066AB8D4-ADE4-45D9-BC5E-74F1DEF19FA6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "lab02TPP_Testing", "lab02TPP_Testing\lab02TPP_Testing.csproj", "{502DBC05-0199-4256-9ABE-E39668ED75CC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +21,6 @@ Global
 		{502DBC05-0199-4256-9ABE-E39668ED75CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{502DBC05-0199-4256-9ABE-E39668ED75CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{502DBC05-0199-4256-9ABE-E39668ED75CC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{066AB8D4-ADE4-45D9-BC5E-74F1DEF19FA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{066AB8D4-ADE4-45D9-BC5E-74F1DEF19FA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{066AB8D4-ADE4-45D9-BC5E-74F1DEF19FA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{066AB8D4-ADE4-45D9-BC5E-74F1DEF19FA6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

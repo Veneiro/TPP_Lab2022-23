@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mateo\\Desktop\\Universidad\\TPP Lab\\lab02TPP\\lab02TPPSet\\lab02TPPSet.csproj",
+      "projectUniqueName": "C:\\Users\\mateo\\Desktop\\Universidad\\TPP Lab\\Homework\\lab02TPP\\lab02TPPSet\\lab02TPPSet.csproj",
       "projectName": "lab02TPPSet",
-      "projectPath": "C:\\Users\\mateo\\Desktop\\Universidad\\TPP Lab\\lab02TPP\\lab02TPPSet\\lab02TPPSet.csproj",
+      "projectPath": "C:\\Users\\mateo\\Desktop\\Universidad\\TPP Lab\\Homework\\lab02TPP\\lab02TPPSet\\lab02TPPSet.csproj",
       "packagesPath": "C:\\Users\\mateo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mateo\\Desktop\\Universidad\\TPP Lab\\lab02TPP\\lab02TPPSet\\obj\\",
+      "outputPath": "C:\\Users\\mateo\\Desktop\\Universidad\\TPP Lab\\Homework\\lab02TPP\\lab02TPPSet\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
