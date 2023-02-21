@@ -14,3 +14,19 @@ C:\Users\mateo\Desktop\Universidad\TPP Lab\Classwork\lab03TPP\lab03TPP\obj\Debug
 C:\Users\mateo\Desktop\Universidad\TPP Lab\Classwork\lab03TPP\lab03TPP\obj\Debug\net5.0\lab03TPP.pdb
 C:\Users\mateo\Desktop\Universidad\TPP Lab\Classwork\lab03TPP\lab03TPP\obj\Debug\net5.0\lab03TPP.genruntimeconfig.cache
 C:\Users\mateo\Desktop\Universidad\TPP Lab\Classwork\lab03TPP\lab03TPP\obj\Debug\net5.0\ref\lab03TPP.dll
+C:\Users\mateo\Documents\GitHub\TPP_Lab2022-23\Homework\lab03TPP\lab03TPP\bin\Debug\net5.0\lab03TPP.exe
+C:\Users\mateo\Documents\GitHub\TPP_Lab2022-23\Homework\lab03TPP\lab03TPP\bin\Debug\net5.0\lab03TPP.deps.json
+C:\Users\mateo\Documents\GitHub\TPP_Lab2022-23\Homework\lab03TPP\lab03TPP\bin\Debug\net5.0\lab03TPP.runtimeconfig.json
+C:\Users\mateo\Documents\GitHub\TPP_Lab2022-23\Homework\lab03TPP\lab03TPP\bin\Debug\net5.0\lab03TPP.runtimeconfig.dev.json
+C:\Users\mateo\Documents\GitHub\TPP_Lab2022-23\Homework\lab03TPP\lab03TPP\bin\Debug\net5.0\lab03TPP.dll
+C:\Users\mateo\Documents\GitHub\TPP_Lab2022-23\Homework\lab03TPP\lab03TPP\bin\Debug\net5.0\lab03TPP.pdb
+C:\Users\mateo\Documents\GitHub\TPP_Lab2022-23\Homework\lab03TPP\lab03TPP\obj\Debug\net5.0\lab03TPP.csproj.AssemblyReference.cache
+C:\Users\mateo\Documents\GitHub\TPP_Lab2022-23\Homework\lab03TPP\lab03TPP\obj\Debug\net5.0\lab03TPP.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mateo\Documents\GitHub\TPP_Lab2022-23\Homework\lab03TPP\lab03TPP\obj\Debug\net5.0\lab03TPP.AssemblyInfoInputs.cache
+C:\Users\mateo\Documents\GitHub\TPP_Lab2022-23\Homework\lab03TPP\lab03TPP\obj\Debug\net5.0\lab03TPP.AssemblyInfo.cs
+C:\Users\mateo\Documents\GitHub\TPP_Lab2022-23\Homework\lab03TPP\lab03TPP\obj\Debug\net5.0\lab03TPP.csproj.CoreCompileInputs.cache
+C:\Users\mateo\Documents\GitHub\TPP_Lab2022-23\Homework\lab03TPP\lab03TPP\obj\Debug\net5.0\lab03TPP.dll
+C:\Users\mateo\Documents\GitHub\TPP_Lab2022-23\Homework\lab03TPP\lab03TPP\obj\Debug\net5.0\refint\lab03TPP.dll
+C:\Users\mateo\Documents\GitHub\TPP_Lab2022-23\Homework\lab03TPP\lab03TPP\obj\Debug\net5.0\lab03TPP.pdb
+C:\Users\mateo\Documents\GitHub\TPP_Lab2022-23\Homework\lab03TPP\lab03TPP\obj\Debug\net5.0\lab03TPP.genruntimeconfig.cache
+C:\Users\mateo\Documents\GitHub\TPP_Lab2022-23\Homework\lab03TPP\lab03TPP\obj\Debug\net5.0\ref\lab03TPP.dll
