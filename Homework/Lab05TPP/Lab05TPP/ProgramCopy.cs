@@ -1,11 +1,12 @@
-﻿/*using Classes;
+﻿using Classes;
 using PTP_HW_5;
 using System;
 using System.Diagnostics;
+using System.Numerics;
 
 namespace Lab05TPP
 {
-    internal class Program
+    internal class ProgramCopy
     {
         static void Main(string[] args)
         {
@@ -13,6 +14,7 @@ namespace Lab05TPP
             Person[] people = Factory.CreatePeople();
             Angle[] angles = Factory.CreateAngles();
             Functions f = new Functions();
+            FunctionsCopy fc = new FunctionsCopy();
 
             // Functions
             var resFindP = f.Find<Person>(people, x => x.Name.Equals("Michael")); // Search a person named Michael
@@ -47,7 +49,16 @@ namespace Lab05TPP
             
             Console.WriteLine("Total Angle degrees: ", resReduceA);
 
+            Console.WriteLine("---------------------------------\n");
+
+            var res = fc.Map<Person, string>(people, p => p.Surname + ", " + p.Name);
+            foreach (var e in res) 
+                Console.WriteLine(e.ToString());
+
+            Console.WriteLine("---------------------------------\n");
+
+            fc.Show<Person>(people, x => Console.WriteLine(x));
+
         }
     }
 }
-*/
