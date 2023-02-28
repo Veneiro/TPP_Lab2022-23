@@ -89,6 +89,11 @@ namespace ConsoleApp1
             return x => function(function2(x));
         }
 
+        private static Func<T1, T3> Compose<T1,T2,T3>(Func<T1, T2> func1, Func<T2,T3> func2)
+        {
+            return x => func2(func1(x));
+        }
+
         static void Main(string[] args)
         {
             Func<double, double> asinh1 = delegate (double x) { return Math.Log(x * x + 1); };
