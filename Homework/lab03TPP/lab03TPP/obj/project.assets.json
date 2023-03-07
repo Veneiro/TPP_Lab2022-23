@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mateo\\Documents\\GitHub\\TPP_Lab2022-23\\Homework\\lab03TPP\\lab03TPP\\lab03TPP.csproj",
+      "projectUniqueName": "C:\\Users\\mateo\\Desktop\\Universidad\\TPP Lab\\Homework\\lab03TPP\\lab03TPP\\lab03TPP.csproj",
       "projectName": "lab03TPP",
-      "projectPath": "C:\\Users\\mateo\\Documents\\GitHub\\TPP_Lab2022-23\\Homework\\lab03TPP\\lab03TPP\\lab03TPP.csproj",
+      "projectPath": "C:\\Users\\mateo\\Desktop\\Universidad\\TPP Lab\\Homework\\lab03TPP\\lab03TPP\\lab03TPP.csproj",
       "packagesPath": "C:\\Users\\mateo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mateo\\Documents\\GitHub\\TPP_Lab2022-23\\Homework\\lab03TPP\\lab03TPP\\obj\\",
+      "outputPath": "C:\\Users\\mateo\\Desktop\\Universidad\\TPP Lab\\Homework\\lab03TPP\\lab03TPP\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

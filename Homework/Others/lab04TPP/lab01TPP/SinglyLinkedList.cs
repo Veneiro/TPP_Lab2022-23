@@ -231,5 +231,65 @@ namespace lab02TPP
         {
             return new SinglyLinkedListEnumerator<T>(this.head);
         }
+
+        public T Find(Predicate<T> f)
+        {
+            for(int i = 0; i < NumberOfElements; i++)
+            {
+                if (f(GetElement(i)))
+                {
+                    return GetElement(i);
+                }
+            }
+            return default(T);
+        }
+
+        public IEnumerable<T> FIltrar(Predicate<T> f)
+        {
+            IList<T> lista = new List<T>();
+            for (int i = 0; i < NumberOfElements; i++)
+            {
+                if (f(GetElement(i)))
+                    lista.Add(GetElement(i));
+            }
+            return lista;
+        }
+
+        public K Reducir<K>(Func<K, T, K> f, K r = default(K))
+        {
+            K resultado = r;
+            for (int i = 0; i < NumberOfElements; i++)
+            {
+                resultado = f(resultado, GetElement(i));
+            }
+            return resultado;
+        }
+        public IEnumerable<T> Invertir()
+        {
+            IList<T> lista = new List<T>();
+            for (int i = NumberOfElements - 1; i >= 0; i--)
+            {
+                lista.Add(GetElement(i));
+            }
+            return lista;
+        }
+
+        public IEnumerable<K> Map<K>(Func<T, K> f)
+        {
+            IList<K> lista = new List<K>();
+            for (int i = 0; i < NumberOfElements; i++)
+            {
+                lista.Add(f(GetElement(i)));
+            }
+            return lista;
+        }
+
+        public void ForEach(Action<T> action)
+        {
+            foreach (T x in this)
+            {
+                action(x);
+            }
+        }
     }
 }
