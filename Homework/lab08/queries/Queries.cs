@@ -21,11 +21,11 @@ namespace TPP.Laboratory.Functional.Lab08
             query.Query5();
             query.Query6();
             
-            //query.Homework1();
-            //query.Homework2();
-            //query.Homework3();
-            //query.Homework4();
-            //query.Homework5();
+            query.Homework1();
+            query.Homework2();
+            query.Homework3();
+            query.Homework4();
+            query.Homework5();
 
             Console.ReadLine();
         }
@@ -116,41 +116,158 @@ namespace TPP.Laboratory.Functional.Lab08
 
         /************ Homework **********************************/
 
+        private void Show<T>(IEnumerable<T> list)
+        {
+            foreach(var e in list)
+                Console.WriteLine(e);
+            Console.WriteLine("Items in the collection {0}", list.Count());
+        }
+
         private void Homework1()
         {
+            Console.WriteLine();
+            Console.WriteLine("*** *** *** HOMEWORK 1 *** *** ***");
+            Console.WriteLine();
             // Show, ordered by age, the names of the employees in the Computer Science department, 
             // who have an office in the Faculty of Science, 
             // and who have done phone calls longer than one minute
+            IEnumerable<Employee> employees = model.Employees.Where(x => x.Department.Name.Equals("Computer Science") && x.Office.Building.Equals("Faculty of Science"));
+            employees.OrderBy(x => x.Age);
+            var res = employees.Join(model.PhoneCalls, x => x.TelephoneNumber, y => y.SourceNumber, (x, y) => new
+            {
+                NameOfTheEmployee = x.Name,
+                CallLengthInSeconds = y.Seconds
+            });
 
+            Console.WriteLine("All the phone calls:");
+            Show(res);
+
+            var resBigger60 = res.Where(x => x.CallLengthInSeconds > 60);
+
+            Console.WriteLine("Phone calls larger than 60 seconds:");
+            Show(resBigger60);
         }
 
         private void Homework2()
         {
+            Console.WriteLine();
+            Console.WriteLine("*** *** *** HOMEWORK 2 *** *** ***");
+            Console.WriteLine();
             // Show the summation, in seconds, of the phone calls done by the employees of the Computer Science department
-			
+
+            IEnumerable<Employee> employees = model.Employees.Where(x => x.Department.Name.Equals("Computer Science"));
+
+            var res = employees.Join(model.PhoneCalls, x => x.TelephoneNumber, y => y.SourceNumber, (x, y) => new
+            {
+                NameOfTheEmployee = x.Name,
+                CallLengthInSeconds = y.Seconds
+            });
+            var resSum = res.Sum(x => x.CallLengthInSeconds);
+            Console.WriteLine("Total time of Computer Science Department calls: {0}", resSum);
         }
 
         private void Homework3()
         {
+            Console.WriteLine();
+            Console.WriteLine("*** *** *** HOMEWORK 3 *** *** ***");
+            Console.WriteLine();
             // Show the phone calls done by each department, ordered by department names. 
             // Each line must show “Department = <Name>, Duration = <Seconds>”
-			
+
+            var res = model.Employees.Join(model.PhoneCalls, x => x.TelephoneNumber, y => y.SourceNumber, (x, y) => new
+            {
+                EmployeeDepartment = x.Department.Name,
+                CallLengthInSeconds = y.Seconds
+            });
+
+            var resGroupedAndOrdered = res.GroupBy(x => x.EmployeeDepartment).OrderBy(x => x.Key).Select(x=> new
+            {
+                departament = x.Key,
+                CallLengthInSeconds = x.Sum(x =>x.CallLengthInSeconds)
+            });
+
+            Show(resGroupedAndOrdered);
         }
 
         private void Homework4()
         {
+            Console.WriteLine();
+            Console.WriteLine("*** *** *** HOMEWORK 4 *** *** ***");
+            Console.WriteLine();
             // Show the departments with the youngest employee, 
             // together with the name of the youngest employee and his/her age 
             // (more than one youngest employee may exist)
-			
+
+            var employees = model.Employees.Join(model.Departments, x => x.Department.Name, y => y.Name, (x, y) => new
+            {
+                Department = x.Department.Name,
+                EmployeeAge = x.Age
+            });
+
+            var minAge = employees.Min(x => x.EmployeeAge);
+
+            var res = employees.Where(x => x.EmployeeAge == minAge);
+
+            Show(res);
+
+
+            var listDep = model.Departments.GroupBy(dep => dep.Name, emp => new
+            {
+                Name = emp.Employees.FirstOrDefault(x => x.Age == emp.Employees.Min(e => e.Age)),
+                Age = emp.Employees.Min(e => e.Age)
+            }).Select(x => new
+            {
+                Name = x.Key,
+                Age = x.Min(x => x.Age)
+            });
+
+            /*
+            foreach(var d in listDep)
+            {
+                Console.Write("Department " + d.Key);
+                foreach(var e in d)
+                {
+                    Console.WriteLine(" =" + e.Age);
+                    Console.WriteLine(e.Name);
+                }
+            }
+            */
+
+            Show(listDep);
+
+
         }
 
         private void Homework5()
         {
+            Console.WriteLine();
+            Console.WriteLine("*** *** *** HOMEWORK 5 *** *** ***");
+            Console.WriteLine();
             // Show the greatest summation of phone call durations, in seconds, 
             // of the employees in the same department, together with the name of the department 
             // (it can be assumed that there is only one department fulfilling that condition)
-			
+
+            var res = model.Employees.Join(model.PhoneCalls, x => x.TelephoneNumber, y => y.SourceNumber, (x, y) => new
+            {
+                NameOfTheEmployee = x.Name,
+                CallLengthInSeconds = y.Seconds,
+                Department = x.Department.Name
+            }).GroupBy(x => x.Department);
+
+            var res2 = res.OrderBy(x => x.Key).Select(x => new
+            {
+                departament = x.Key,
+                CallLengthInSeconds = x.Sum(x => x.CallLengthInSeconds)
+            });
+            
+            var aux = res2.Max(x => x.CallLengthInSeconds);
+
+
+            var res3 = res2.Where(x => x.CallLengthInSeconds == aux);
+
+
+            Show(res3);
+
         }
 
 
