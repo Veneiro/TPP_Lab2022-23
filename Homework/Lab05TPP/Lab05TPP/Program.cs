@@ -1,4 +1,4 @@
-﻿/*using Classes;
+﻿using Classes;
 using PTP_HW_5;
 using System;
 using System.Diagnostics;
@@ -19,8 +19,6 @@ namespace Lab05TPP
             var resFindA = f.Find<Angle>(angles, x => x.Degrees.Equals(90)); // Searching a 90º angle
             var resFilterP = f.Filter<Person>(people, x => x.Name.Equals("James")); // Searching people named James
             var resFilterA = f.Filter<Angle>(angles, x => x.Degrees.Equals(90)); // Searching all the 90º angle
-            // var resReduceP = 
-            float resReduceA = f.Reduce<Angle, float>(angles, (r, d) => r += d.Degrees);
 
             // Checkings
             Console.WriteLine("Find Method\n".ToUpper());
@@ -45,9 +43,7 @@ namespace Lab05TPP
 
             Console.WriteLine();
             
-            Console.WriteLine("Total Angle degrees: ", resReduceA);
 
         }
     }
 }
-*/

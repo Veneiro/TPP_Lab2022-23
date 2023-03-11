@@ -94,5 +94,25 @@ namespace Classes
          * Como se usa el método mostrar
          * Show<Person>(vector, x=>Console.write(x))
          */
+
+
+        /// <summary>
+        /// A function that is applied to all the elements in a collection, returning a single value
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="K"></typeparam>
+        /// <param name="elems"> Elements where the function is going to be applied </param>
+        /// <param name="reducer"> The function that is going to be applied to the elements </param>
+        /// <param name="r"> Default value for K </param>
+        /// <returns> The result after applying the function to all the elements </returns>
+        //public K Reduce<T, K>(IEnumerable<T> elems, Func<K, T, K> reducer, K r = default(K))
+        //{
+        //    K res = r;
+        //    foreach (T elem in elems)
+        //    {
+        //        res = reducer(res, elem);
+        //    }
+        //    return res;
+        //}
     }
 }

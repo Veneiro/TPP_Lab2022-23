@@ -36,6 +36,20 @@ namespace PTP_HW_5
             return Sine() / Cosine();
         }
 
+        public int Quadrant
+        {
+            get
+            {
+                if (this.Radians <= Math.PI / 2)
+                    return 1;
+                if (this.Radians <= Math.PI)
+                    return 2;
+                if (this.Radians <= 3 * Math.PI / 2)
+                    return 3;
+                return 4;
+            }
+        }
+
         public override string ToString()
         {
             return String.Format("Angle: Rad[{0}], Deg[{1}], Sin[{2}], Cosine[{3}], Tangent[{4}]", Radians, Degrees, Sine(), Cosine(), Tangent());

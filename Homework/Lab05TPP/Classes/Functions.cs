@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 
 namespace Classes
@@ -47,17 +48,16 @@ namespace Classes
         /// A function that is applied to all the elements in a collection, returning a single value
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        /// <typeparam name="K"></typeparam>
-        /// <param name="elems"> Elements where the function is going to be applied </param>
-        /// <param name="reducer"> The function that is going to be applied to the elements </param>
-        /// <param name="r"> Default value for K </param>
+        /// <typeparam name="Q"></typeparam>
+        /// <param name="l"> Elements where the function is going to be applied </param>
+        /// <param name="f"> The function that is going to be applied to the elements </param>
         /// <returns> The result after applying the function to all the elements </returns>
-        public K Reduce<T, K>(IEnumerable<T> elems, Func<K, T, K> reducer, K r=default(K))
+        public T Reduce<T, Q>(T[] l, Func<T, T, T> f)
         {
-            K res = r;
-            foreach (T elem in elems)
+            T res = f(l[0], l[0]);
+            for (int i = 1; i < l.Count(); i++)
             {
-                res = reducer(res, elem);
+                res = f(res, l[i]);
             }
             return res;
         }
