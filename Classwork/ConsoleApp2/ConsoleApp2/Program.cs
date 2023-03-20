@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 
 namespace ConsoleApp2
@@ -148,6 +149,113 @@ namespace ConsoleApp2
                     // * No more terms are returned (we are done)
                     yield break;
             }
+        }
+
+        //recursive version
+        static Func<int, int> MemoizedFibonacciR()
+        {
+            //cache dictionary
+            IDictionary<int, int> cache = new Dictionary<int, int>();
+            //initialization
+            cache[0] = 1;
+            cache[1] = 1;
+            //the returned memoized function
+            //because it is recursive, it must be defined
+            //now, in order to call it later
+            Func<int, int> f = null;
+            //assign the lambda with the actual code to
+            //the previous function 
+            f = (n) =>
+            {
+                //if it is in the cache, return it
+                if (cache.Keys.Contains(n))
+                    return cache[n];
+                //otherwise, obtain nest term index
+                else
+                {
+                    //A trace to show when a term is computed
+                    Console.Write("*");
+                    //compute the next term, note that the recursive
+                    //call computes the previous terms if they
+                    //do not exist
+                    cache[n] = f(n - 1) + f(n - 2);
+                    //return the requested term
+                    return cache[n];
+                }
+            };
+            return f;
+        }
+        //iterative version
+        static Func<int, int> MemoizedFibonacci()
+        {
+            //cache dictionary
+            IDictionary<int, int> cache = new Dictionary<int, int>();
+            //initialization
+            cache[0] = 1;
+            cache[1] = 1;
+            //the returned memoized function
+            return (n) =>
+            {
+                //if it is in the cache, return it
+                if (cache.Keys.Contains(n))
+                    return cache[n];
+                else
+                {
+                    //otherwise, obtain next term index
+                    int i = cache.Keys.Last() + 1;
+                    //compute the terms from that index to the requested one
+                    //and store them
+                    while (cache.Keys.Last() < n)
+                    {
+                        //A trace to show when a term is computed
+                        Console.Write("*");
+                        cache[i] = cache[i - 1] + cache[i - 2];
+                        i++;
+                    }
+                    //return the requested term
+                    return cache[n];
+                }
+            };
+        }
+
+        static Func<int, int> MemoizedPrimes()
+        {
+            //cache dictionary
+            IDictionary<int, int> cache = new Dictionary<int, int>();
+            //initialization
+            cache[0] = 1;
+            cache[1] = 1;
+            //the returned memoized function
+            return (n) =>
+            {
+                //if it is in the cache, return it
+                if (cache.Keys.Contains(n))
+                    return cache[n];
+                else
+                {
+                    //otherwise, obtain next term index
+                    int i = cache.Keys.Last() + 1;
+                    //compute the terms from that index to the requested one
+                    //and store them
+                    while (cache.Keys.Last() < n)
+                    {
+                        //A trace to show when a term is computed
+                        Console.Write("*");
+                        // The next prime candidate is the last _value_ + 1
+                        // while that numberr _is not_ prime
+                        // increment it
+                        // after the loop, store the found prime
+                        // remove this expresion
+                        int primeCandidate = cache.Last().Value + 1;
+                        while (!isPrime(primeCandidate))
+                            primeCandidate++;
+                        cache[i] = primeCandidate;
+                        i++;
+                    }
+                    //return the requested term
+                    return cache[n];
+                }
+            };
         }
 
 
