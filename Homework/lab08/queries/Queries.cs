@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -21,6 +22,8 @@ namespace TPP.Laboratory.Functional.Lab08
             query.Query4();
             query.Query5();
             query.Query6();
+
+            query.QueryExam1();
 
             query.Extra6();
             query.Extra7();
@@ -74,6 +77,9 @@ namespace TPP.Laboratory.Functional.Lab08
             Console.WriteLine();
             Console.WriteLine("*** *** *** QUERY 2 *** *** ***");
             Console.WriteLine();
+
+            var aux = model.Employees.Where(x=>x.Age > 50 && x.Province.Equals("Cantabria")).Select(x => x.Name + " " + x.Surname);
+            Show(aux);
 			
         }
 		
@@ -84,7 +90,24 @@ namespace TPP.Laboratory.Functional.Lab08
             Console.WriteLine();
             Console.WriteLine("*** *** *** QUERY 3 *** *** ***");
             Console.WriteLine();
-			
+
+            var aux = model.Departments.Where(d => d.Employees.Count() > 1);
+            Show(aux);
+
+            // If departments didn't have a list of employees
+            var aux2 = model.Departments.Select(d => new
+            {
+                Department=d,
+                NumberOfEmployees=model.Employees.Where(e=>e.Department.Equals(d)).Count()
+            }).Where(a=>a.NumberOfEmployees > 1);
+            Show(aux2);
+
+            var aux3 = model.Employees.GroupBy(emp => emp.Department).Where(x=>x.Count() > 1).Select(x=>x.Key);
+            foreach (var elem in aux3)
+            {
+                Console.WriteLine(elem);
+            }
+            
         }
         
         private void Query4()
@@ -95,7 +118,20 @@ namespace TPP.Laboratory.Functional.Lab08
             Console.WriteLine();
             Console.WriteLine("*** *** *** QUERY 4 *** *** ***");
             Console.WriteLine();
-			
+
+            var aux = model.PhoneCalls.Join(model.Employees, x => x.SourceNumber, y => y.TelephoneNumber, (x, y) => new
+            {
+                EmployeeName=y.Name,
+                PhoneCallDuration=x.Seconds
+            }).GroupBy(z=>z.EmployeeName).OrderBy(k=>k.Key);
+
+
+            foreach (var elem in aux)
+            {
+                Console.WriteLine(elem.Key);
+                Show(elem);
+                Console.WriteLine();
+            }
         }
 		
 		private void Query5()
@@ -105,7 +141,17 @@ namespace TPP.Laboratory.Functional.Lab08
 			Console.WriteLine();
             Console.WriteLine("*** *** *** QUERY 5 *** *** ***");
             Console.WriteLine();
-			
+
+            var aux = model.Employees.GroupBy(e => e.Province, x=> new
+            {
+                EmployeeName=x.Name
+            });
+
+            foreach(var i in aux)
+            {
+                Console.WriteLine(i.Key);
+                Show(i);
+            }
 		}
 		
 		private void Query6()
@@ -115,7 +161,38 @@ namespace TPP.Laboratory.Functional.Lab08
             Console.WriteLine();
             Console.WriteLine("*** *** *** QUERY 6 *** *** ***");
             Console.WriteLine();
-			
+
+            var aux = model.PhoneCalls.Join(model.Employees, x => x.SourceNumber, y => y.TelephoneNumber, (x, y) => new
+            {
+               x,y
+            }).GroupBy(ep=>ep.y.Department);
+
+            foreach(var i in aux)
+            {
+                Console.WriteLine(i.Key);
+                Show(i);
+            }
+        }
+        // Building with more outgoing calls
+        private void QueryExam1()
+        {
+            Console.WriteLine();
+            Console.WriteLine("*** *** *** QUERY EXAM 1 *** *** ***");
+            Console.WriteLine();
+
+            var aux = model.Employees.Join(model.PhoneCalls, x=>x.TelephoneNumber, y=>y.SourceNumber, (x,y) => new
+            {
+                x,
+                y
+            }).GroupBy(xy=>xy.x.Office.Building)
+            .Select(xy=>new { 
+                Building=xy.Key,
+                NumberOfCalls=xy.Count()
+            })
+            .Aggregate((acc,ep)=>ep.NumberOfCalls>acc.NumberOfCalls?ep:acc);
+
+            Console.WriteLine(aux);
+
         }
 
         /************* Extra ************************************/
