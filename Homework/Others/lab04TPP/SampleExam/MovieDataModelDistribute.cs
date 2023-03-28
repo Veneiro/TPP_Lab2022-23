@@ -154,13 +154,23 @@ namespace TPP.MoviesExam
             return films;
         }
 
-        public String MostAwardedPrize()
+        public void MostAwardedPrize()
         {
             var prize =
-                movieAwards.Join(awards, m => m.AwardID, a => a.AwardID, ma => new
+                movieAwards.Join(awards, m => m.AwardID, a => a.AwardID, (m,a) => new
                 {
-
-                });
+                    id=a.AwardID,
+                    name=a.AwardName
+                }).GroupBy(z=>z.name)
+                .Select(a => new
+                {
+                    AwardName=a.Key,
+                    TimesGiven=a.Count()
+                }).OrderBy(c=>c.TimesGiven);
+            foreach(var a in prize)
+            {
+                Console.WriteLine(a.AwardName + " " + a.TimesGiven);
+            }
         }
     }
 }

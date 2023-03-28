@@ -1,0 +1,151 @@
+query.QueryExam1();
+
+            query.Extra6();
+            query.Extra7();
+            query.Extra8();
+            query.Extra9();
+
+
+// Building with more outgoing calls
+        private void QueryExam1()
+        {
+            Console.WriteLine();
+            Console.WriteLine("*** *** *** QUERY EXAM 1 *** *** ***");
+            Console.WriteLine();
+
+            var aux = model.Employees.Join(model.PhoneCalls, x=>x.TelephoneNumber, y=>y.SourceNumber, (x,y) => new
+            {
+                x,
+                y
+            }).GroupBy(xy=>xy.x.Office.Building)
+            .Select(xy=>new { 
+                Building=xy.Key,
+                NumberOfCalls=xy.Count()
+            })
+            .Aggregate((acc,ep)=>ep.NumberOfCalls>acc.NumberOfCalls?ep:acc);
+
+            Console.WriteLine(aux);
+
+        }
+
+
+
+        /************* Extra ************************************/
+
+        /**
+         * Calcular la lista de edificios que han realizado más de 100 sec de llamada 
+         */
+        public void Extra6()
+        {
+            Console.WriteLine();
+            Console.WriteLine("*** *** *** EXTRA 6 *** *** ***");
+            Console.WriteLine();
+
+            var res = model.Employees.Join(model.PhoneCalls, x => x.TelephoneNumber, y => y.SourceNumber,
+            (x, y) => new
+            {
+                Building = x.Office.Building,
+                Duracion = y.Seconds
+            }).GroupBy(x => x.Building).Select(x =>
+            new
+            {
+                Building = x.Key,
+                DuracionSegundos = x.Sum(y => y.Duracion)
+            }).Where(x => x.DuracionSegundos > 100);
+
+            Show(res);
+        }
+
+        /**
+         * Obtener las lista de departamentos desde cuyo telefonos no se hayan realizado llamadas
+         */
+        public void Extra7()
+        {
+            Console.WriteLine();
+            Console.WriteLine("*** *** *** EXTRA 7 *** *** ***");
+            Console.WriteLine();
+
+            var res = model.Employees.Join(model.PhoneCalls, x => x.TelephoneNumber, y => y.SourceNumber, 
+            (x, y) => new
+            {
+                Department = x.Department
+            });
+
+            var noCallsD = new List<Department>();
+
+            var allDCalls = model.Departments.Select(d => d.Name);
+
+            foreach(var d in res)
+            {
+                if(!allDCalls.Contains(d.Department.Name))
+                    noCallsD.Add(d.Department);
+            }
+
+            Show(noCallsD);
+
+            var aux = model.Departments.Except(res.Select(d=>d.Department));
+            Show(aux);
+        }
+
+        /**
+         * Calcular la lista de numeros que no han realizado llamadas
+         */
+        public void Extra8()
+        {
+            Console.WriteLine();
+            Console.WriteLine("*** *** *** EXTRA 8 *** *** ***");
+            Console.WriteLine();
+
+            var noCalls = new List<String>();
+            var empNum = model.Employees.Select(x => x.TelephoneNumber);
+            var allNumber = model.PhoneCalls.Select(x => x.SourceNumber);
+
+            foreach(var t in empNum)
+            {
+                if (!allNumber.Contains(t))
+                    noCalls.Add(t);
+            }
+
+            Console.WriteLine("Using foreach and Contains: ");
+            Show(noCalls);
+
+            Console.WriteLine();
+
+            // All employee numbers except the ones that are in the PhoneCalls List
+            var except = empNum.Except(allNumber);
+            Console.WriteLine("Using Except from linq: ");
+            Show(except);
+        }
+
+        /**
+         * Mostrar agrupados por provincia el nombre del empleado ordenado por provincias y empleados
+         */
+        public void Extra9()
+        {
+            Console.WriteLine();
+            Console.WriteLine("*** *** *** EXTRA 9 *** *** ***");
+            Console.WriteLine();
+
+            var res = model.Employees.OrderBy(x=>x.Name).GroupBy(x=>x.Province,
+                emp=>
+                new
+                {
+                    Province=emp.Province,
+                    Nombre=emp.Name
+                }).OrderBy(x=>x.Key);
+
+            /*var i = res.GetEnumerator();
+            while(i.MoveNext()) {
+                Console.WriteLine(i.Current.Key);
+                var j = i.Current.GetEnumerator();
+                while (j.MoveNext())
+                {
+                    Console.WriteLine("Province: " + j.Current);
+                }
+            }*/
+
+            var a = res.Select(x => x);
+
+            Show(a);
+
+        }

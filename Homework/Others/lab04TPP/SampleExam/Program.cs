@@ -41,6 +41,8 @@ namespace SampleExam
             MovieModel model = new MovieModel();
 
             Console.WriteLine(model.FilmsByFormatAndGenre("HD", "Comedy"));
+
+            model.MostAwardedPrize();
         }
 
         static void For(Func<bool> condition, Action body, Action actualizar)
