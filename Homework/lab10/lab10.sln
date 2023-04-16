@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interlocked", "Interlocked\Interlocked.csproj", "{698E137F-30CC-46A9-8A97-A5608D0A7120}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "deadlock", "deadlock\deadlock.csproj", "{451A127D-1A7F-4ADC-AB91-86F8EEFC7998}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "colors", "colors\colors.csproj", "{085E1D8E-EE83-4EBC-9B51-94D00A85EA0E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{698E137F-30CC-46A9-8A97-A5608D0A7120}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{698E137F-30CC-46A9-8A97-A5608D0A7120}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{698E137F-30CC-46A9-8A97-A5608D0A7120}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{698E137F-30CC-46A9-8A97-A5608D0A7120}.Release|Any CPU.Build.0 = Release|Any CPU
+		{451A127D-1A7F-4ADC-AB91-86F8EEFC7998}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{451A127D-1A7F-4ADC-AB91-86F8EEFC7998}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{451A127D-1A7F-4ADC-AB91-86F8EEFC7998}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{451A127D-1A7F-4ADC-AB91-86F8EEFC7998}.Release|Any CPU.Build.0 = Release|Any CPU
+		{085E1D8E-EE83-4EBC-9B51-94D00A85EA0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{085E1D8E-EE83-4EBC-9B51-94D00A85EA0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{085E1D8E-EE83-4EBC-9B51-94D00A85EA0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{085E1D8E-EE83-4EBC-9B51-94D00A85EA0E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
