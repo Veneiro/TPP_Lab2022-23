@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace LAB10TPP
 {
-    internal class ConcurrentQueue<T>
+    public class ConcurrentQueue<T>
     {
         // My Generic list
         public SinglyLinkedList<T> list;
 
         // Static object that can be used for lock
-        // public static Object staticObject = new Object();
+        public static Object staticObj = new Object();
 
         /// <summary>
         /// Property that returns if the list is empty or not
@@ -44,26 +44,22 @@ namespace LAB10TPP
 
         public void Add(T value)
         {
-            Object ob = new Object();
-            lock(ob)
-                list.Add(value);
+            //Object ob = new Object();
+            //lock(ob)
+            //    list.Add(value);
 
-            /*
-             * lock(this)
-             *  list.Add(value);
-             */
-
-            /*
-             * lock(staticObj)
-             *  list.Add(value);
-             */
+             //lock(this)
+             //   list.Add(value);
+            
+            lock(staticObj)
+               list.Add(value);
         }
 
         public T Extract()
         {
             T value = default(T);
             Object ob = new Object();
-            lock (ob)
+            lock (staticObj)
             {
                 value = list.Remove(0);
             }
@@ -74,7 +70,7 @@ namespace LAB10TPP
         {
             T value = default(T);
             Object ob = new Object();
-            lock (ob)
+            lock (staticObj)
             {
                 value = list.GetElement(0);
             }

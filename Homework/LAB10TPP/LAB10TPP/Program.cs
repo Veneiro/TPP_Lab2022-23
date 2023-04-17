@@ -10,15 +10,22 @@ namespace LAB10TPP
         static void Main(string[] args)
         {
             ConcurrentQueue<int> concurrentQueue= new ConcurrentQueue<int>();
-            Thread[] threads = new Thread[10];
+            Thread[] threads = new Thread[40];
             for(int i = 0; i < threads.Length; i++)
             {
                 threads[i] = new Thread(()=>concurrentQueue.Add(i+1));
                 threads[i].Start();
-                threads[i].Join();
-                // Assert.AreEqual(i+1, concurrentQueue.NumberOfElements);
                 Console.WriteLine("Executing thread " + i);
+                Console.Write("");
+                GC.Collect();
+                GC.WaitForFullGCApproach();
             }
+
+            for (int i = 0; i < threads.Length; i++)
+            {
+                threads[i].Join();
+            }
+
             Console.WriteLine();
             Console.WriteLine("---- ADD LIST ----");
             foreach(var e in concurrentQueue.list)
@@ -32,6 +39,13 @@ namespace LAB10TPP
             {
                 threads[i] = new Thread(() => Console.WriteLine(concurrentQueue.Peek()));
                 threads[i].Start();
+                Console.Write("");
+                GC.Collect();
+                GC.WaitForFullGCApproach();
+            }
+
+            for (int i = 0; i < threads.Length; i++)
+            {
                 threads[i].Join();
             }
 
@@ -41,6 +55,13 @@ namespace LAB10TPP
             {
                 threads[i] = new Thread(() => Console.WriteLine(concurrentQueue.Extract()));
                 threads[i].Start();
+                Console.Write("");
+                GC.Collect();
+                GC.WaitForFullGCApproach();
+            }
+
+             for (int i = 0; i < threads.Length; i++)
+            {
                 threads[i].Join();
             }
         }

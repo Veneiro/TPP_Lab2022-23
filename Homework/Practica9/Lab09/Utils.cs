@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Lab09
 {
-    class Utils
+    public class Utils
     {
         public static bool Verbose = false;
 
@@ -51,7 +51,7 @@ namespace Lab09
         {
             List<BitcoinValueData> listToReturn = new List<BitcoinValueData>();
 
-            foreach (string file in Directory.EnumerateFiles("../../../data", "*.txt"))
+            foreach (string file in Directory.EnumerateFiles("E:\\Universidad\\TPP Lab\\Homework\\Practica9\\Lab09\\data", "*.txt"))
             {
                 if (Verbose)
                     Console.WriteLine("Reading file '" + file + "' ...");
