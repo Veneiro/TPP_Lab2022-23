@@ -4,6 +4,7 @@ using System.Threading;
 using System.Text;
 using System.Linq;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 
 namespace task.parallelism
 {
@@ -30,6 +31,80 @@ namespace task.parallelism
                 return text.ToString();
             }
         }
+
+        public static void countWords(string[] words, ref IDictionary<string, int> dict)
+        {
+            var wordsAndOccurrences =
+                words
+                .AsParallel()
+                .GroupBy(word => word.ToString())
+                .Select(word => new { Word = word.Key, Occurences = word.Count() });
+
+            Object o = new Object();
+            foreach (var word in wordsAndOccurrences)
+            {
+                lock (dict)
+                {
+                    dict.Add(word.Word, word.Occurences);
+
+                }
+            }
+        }
+
+        public static IEnumerable<String> ReadMutiThread(string nombreFichero)
+        {
+            using (StreamReader stream = File.OpenText(nombreFichero))
+            {
+                string linea;
+                while ((linea = stream.ReadLine()) != null)
+                {
+
+                    yield return linea.ToString();
+                }
+
+            }
+        }
+
+        public static void contarPalabra(string[] palabras, ref IDictionary<string, int> diccionario)
+        {
+            palabras.AsParallel().Aggregate(diccionario, (dic, palabra) =>
+            {
+                if (dic.ContainsKey(palabra))
+                    dic[palabra]++;
+                else dic.Add(palabra, 1);
+                return dic;
+            });
+        }
+
+        public static IDictionary<string, int> wordOcurrences2(string[] words, ref IDictionary<string, int> result)
+        {
+            var wordsAndOccurrences = words
+                .AsParallel()
+                .GroupBy(word => word.ToLower()) // words are grouped by its lowercase representation
+                .Select(group => new { Word = group.Key, Occurrences = group.Count() }); // we convert it in a list of pairs {Word, Occurrence}
+            
+            foreach (var word in wordsAndOccurrences)
+            {
+                result.Add(word.Word, word.Occurrences);
+            }
+            return result;
+        }
+
+        public static IDictionary<string, int> wordOcurrences(string[] words)
+        {
+            var wordsAndOccurrences = words
+                .AsParallel()
+                .GroupBy(word => word.ToLower()) // words are grouped by its lowercase representation
+                .Select(group => new { Word = group.Key, Occurrences = group.Count() }); // we convert it in a list of pairs {Word, Occurrence}
+            IDictionary<string, int> result = new Dictionary<string, int>();
+            foreach (var word in wordsAndOccurrences)
+            {
+                result.Add(word.Word, word.Occurrences);
+            }
+            return result;
+        }
+
+
 
         /// <summary>
         /// Returns the number of punctuation marks ( . , ; : ) in the text

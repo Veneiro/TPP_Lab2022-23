@@ -11,6 +11,7 @@ namespace task.parallelism
 {
     class Program
     {
+        private static Object  sObject = new Object();
         public static void sequential_task_processing()
         {
             String text = TextProcessing.ReadTextFile(@"..\..\..\clarin.txt");
@@ -62,13 +63,68 @@ namespace task.parallelism
             Console.WriteLine();
             Console.WriteLine();
         }
-        
+
+        public static void word_counter_parrallel()
+        {
+            String text = TextProcessing.ReadTextFile(@"..\..\..\clarin.txt");
+            string[] words = TextProcessing.DivideIntoWords(text);
+            IDictionary<string, int> wordOccurences = new Dictionary<string, int>();
+            DateTime before = DateTime.Now;
+            Parallel.Invoke(
+                    () => wordOccurences = TextProcessing.wordOcurrences(words)
+                );
+            DateTime after = DateTime.Now;
+
+            Console.WriteLine("Words Counted");
+            Console.WriteLine(words.Count());
+            
+            //foreach (var word in wordOccurences)
+            //{
+            //    Console.WriteLine(word.Key + ": " + word.Value + " Ocurrences");
+            //}
+
+            Console.WriteLine("\nElapsed time: {0:N} milliseconds.", (after - before).Ticks / TimeSpan.TicksPerMillisecond);
+
+            Console.WriteLine();
+            Console.WriteLine();
+        }
+
+        public static void word_counter_parrallel2()
+        {
+            IDictionary<string, int> wordOccurences = new Dictionary<string, int>();
+            DateTime before = DateTime.Now;
+            Parallel.ForEach(TextProcessing.ReadMutiThread(@"..\..\..\clarin.txt"),
+                words =>
+                {
+                    lock (sObject)
+                    {
+                        TextProcessing.contarPalabra(TextProcessing.DivideIntoWords(words), ref wordOccurences);
+                    }
+                });
+            DateTime after = DateTime.Now;
+
+            Console.WriteLine("Words Counted");
+            Console.WriteLine(wordOccurences.Count());
+
+            //foreach (var word in wordOccurences)
+            //{
+            //    Console.WriteLine(word.Key + ": " + word.Value + " Ocurrences");
+            //}
+
+            Console.WriteLine("\nElapsed time: {0:N} milliseconds.", (after - before).Ticks / TimeSpan.TicksPerMillisecond);
+
+            Console.WriteLine();
+            Console.WriteLine();
+        }
+
 
         static void Main(string[] args)
         {
             sequential_task_processing();
 
             parallel_task_processing();
+
+            word_counter_parrallel2();
 
             Console.ReadLine();
         }
