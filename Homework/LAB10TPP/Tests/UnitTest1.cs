@@ -18,7 +18,6 @@ namespace Tests
             {
                 threads[i] = new Thread(() => concurrentQueue.Add(i + 1));
                 threads[i].Start();
-                //Assert.AreEqual(i+1, concurrentQueue.NumberOfElements);
                 Console.WriteLine("Executing thread " + i);
                 Console.Write("");
                 GC.Collect();

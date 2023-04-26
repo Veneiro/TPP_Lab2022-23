@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\lab01TPP\lab02TPP.csproj" />
+    <Compile Remove="Program Vacio.cs" />
   </ItemGroup>
 
 </Project>

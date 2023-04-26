@@ -5,8 +5,4 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\lab01TPP\lab02TPP.csproj" />
-  </ItemGroup>
-
 </Project>

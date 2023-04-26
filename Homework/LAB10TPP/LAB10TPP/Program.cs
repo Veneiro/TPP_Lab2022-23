@@ -1,5 +1,4 @@
-﻿using lab02TPP;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Threading;
 
@@ -10,7 +9,7 @@ namespace LAB10TPP
         static void Main(string[] args)
         {
             ConcurrentQueue<int> concurrentQueue= new ConcurrentQueue<int>();
-            Thread[] threads = new Thread[40];
+            Thread[] threads = new Thread[10];
             for(int i = 0; i < threads.Length; i++)
             {
                 threads[i] = new Thread(()=>concurrentQueue.Add(i+1));
