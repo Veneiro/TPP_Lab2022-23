@@ -65,7 +65,7 @@ namespace task.parallelism
             }
         }
 
-        public static void contarPalabra(string[] palabras, ref IDictionary<string, int> diccionario)
+        public static void countWords2(string[] palabras, ref IDictionary<string, int> diccionario)
         {
             palabras.AsParallel().Aggregate(diccionario, (dic, palabra) =>
             {

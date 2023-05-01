@@ -11,7 +11,12 @@ namespace task.parallelism
 {
     class Program
     {
+        // Object to lock
         private static Object  sObject = new Object();
+
+        /// <summary>
+        /// Sequential version
+        /// </summary>
         public static void sequential_task_processing()
         {
             String text = TextProcessing.ReadTextFile(@"..\..\..\clarin.txt");
@@ -36,7 +41,9 @@ namespace task.parallelism
             Console.WriteLine();
         }
 
-
+        /// <summary>
+        /// Parallel version with tasks
+        /// </summary>
         public static void parallel_task_processing()
         {
             String text = TextProcessing.ReadTextFile(@"..\..\..\clarin.txt");
@@ -64,32 +71,10 @@ namespace task.parallelism
             Console.WriteLine();
         }
 
+        /// <summary>
+        /// Second parallel version with the ForEach and lock
+        /// </summary>
         public static void word_counter_parrallel()
-        {
-            String text = TextProcessing.ReadTextFile(@"..\..\..\clarin.txt");
-            string[] words = TextProcessing.DivideIntoWords(text);
-            IDictionary<string, int> wordOccurences = new Dictionary<string, int>();
-            DateTime before = DateTime.Now;
-            Parallel.Invoke(
-                    () => wordOccurences = TextProcessing.wordOcurrences(words)
-                );
-            DateTime after = DateTime.Now;
-
-            Console.WriteLine("Words Counted");
-            Console.WriteLine(words.Count());
-            
-            //foreach (var word in wordOccurences)
-            //{
-            //    Console.WriteLine(word.Key + ": " + word.Value + " Ocurrences");
-            //}
-
-            Console.WriteLine("\nElapsed time: {0:N} milliseconds.", (after - before).Ticks / TimeSpan.TicksPerMillisecond);
-
-            Console.WriteLine();
-            Console.WriteLine();
-        }
-
-        public static void word_counter_parrallel2()
         {
             IDictionary<string, int> wordOccurences = new Dictionary<string, int>();
             DateTime before = DateTime.Now;
@@ -98,7 +83,7 @@ namespace task.parallelism
                 {
                     lock (sObject)
                     {
-                        TextProcessing.contarPalabra(TextProcessing.DivideIntoWords(words), ref wordOccurences);
+                        TextProcessing.countWords2(TextProcessing.DivideIntoWords(words), ref wordOccurences);
                     }
                 });
             DateTime after = DateTime.Now;
@@ -124,7 +109,7 @@ namespace task.parallelism
 
             parallel_task_processing();
 
-            word_counter_parrallel2();
+            word_counter_parrallel();
 
             Console.ReadLine();
         }
