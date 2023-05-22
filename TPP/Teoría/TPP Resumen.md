@@ -314,21 +314,203 @@ En Java el último punto no se puede aplicar ya que el lenguaje no cuenta con es
 
 La sobrecarga de operadores permite modificar la semántica de los operadores del lenguaje. En C# se ofrece esta característica pudiendo modificar operadores como '++', '--', '[ ]', ... A pesar de estar disponible en C# no es una característica muy utilizada.
 
+## Herencia
+
+La herencia es un concepto fundamental en la programación orientada a objetos (POO) que permite que una clase herede características y comportamientos de otra clase. En la herencia, una clase llamada "clase derivada" o "subclase" puede extender y reutilizar los miembros (atributos y métodos) de otra clase llamada "clase base" o "superclase".
+
+La herencia se basa en la idea de que ciertas clases tienen una relación "es un" con otras clases. Por ejemplo, podríamos tener una clase base llamada "Animal" y clases derivadas como "Perro", "Gato" y "Ave". En este caso, podemos decir que un perro es un animal, un gato es un animal y un ave es un animal. La clase base "Animal" contiene las características y comportamientos comunes a todos los animales, mientras que las clases derivadas agregan características y comportamientos específicos de cada tipo de animal.
+
+```
+class ClaseDerivada : ClaseBase
+{
+    // Miembros adicionales de la clase derivada
+}
+```
+
+La clase derivada hereda todos los miembros (atributos y métodos) públicos y protegidos de la clase base. Esto significa que la clase derivada puede acceder y utilizar los miembros heredados como si fueran propios, y también puede agregar nuevos miembros o modificar los existentes.
+
+La herencia permite varios beneficios, entre ellos:
+
+1.  **Reutilización de código**: Al heredar de una clase base, puedes aprovechar los miembros existentes y evitar la duplicación de código. Esto promueve la reutilización y el mantenimiento eficiente del código.
+
+2.  **Extensibilidad**: Puedes agregar nuevos miembros a la clase derivada para ampliar y especializar su funcionalidad. Esto permite modelar relaciones jerárquicas y comportamientos específicos.
+
+3.  **Polimorfismo**: Las clases derivadas pueden reemplazar los métodos heredados de la clase base con sus propias implementaciones, lo que permite el polimorfismo. Esto significa que una instancia de la clase derivada se puede tratar como una instancia de la clase base, lo que facilita la flexibilidad y modularidad en el diseño de programas.
+
+Es importante tener en cuenta que la herencia debe usarse con cuidado y seguir los principios de diseño adecuados. Una jerarquía de herencia mal diseñada o demasiado compleja puede llevar a problemas de mantenimiento y dificultades en la comprensión del código.
+
+## Polimorfismo
+
+Es un mecanismo de generalización que hace que la abstracción más general pueda representar abstracciones más específicas. Para ello la conversión ascendente en la jerarquía, desde lo más específico hasta los más generalizado, es automática.
+
+**Enlace dinámico**
+
+- Los métodos heredados se pueden especializar en las clases derivadas
+- Si queremos que se llame al método real implementado por el objeto debemos hacer uso del enlace dinámico
+- Para introducir este enlace dinámico en C# debemos poner previamente la palabra reservada virtual en el método que reciba el mensaje
+- También debemos redefinir su funcionalidad utilizando la palabra reservada override en los métodos derivados
+
+## Herencia múltiple
+
+Este tipo de herencia produce dos conflictos principales:
+
+- *Coincidencia de nombres*: se produce cuando se hereda de dos o más clases un miembro con igual identificador lo que produciría una ambigüedad en su acceso.
+- Herencia repetida: se produce cuando se hereda más de una vez de una clase por distintos caminos.
+
+## Interfaces
+
+En programación orientada a objetos, una interfaz es una especificación de un conjunto de métodos que una clase debe implementar. Representa un contrato que define qué operaciones puede realizar un objeto sin especificar cómo se implementan dichas operaciones.
+
+En C#, una interfaz se define utilizando la palabra clave `interface`. Una interfaz declara los métodos, propiedades, eventos y otros miembros que deben ser implementados por cualquier clase que la utilice. Una clase puede implementar múltiples interfaces, lo que permite lograr una mayor flexibilidad y modularidad en el diseño del código.
+
+```
+public interface IReproductorMusica
+{
+    void Reproducir();
+    void Pausar();
+    void Detener();
+}
+```
+
+En este ejemplo, se define una interfaz llamada `IReproductorMusica` que declara tres métodos: `Reproducir()`, `Pausar()` y `Detener()`. Cualquier clase que implemente esta interfaz deberá proporcionar una implementación para estos métodos.
+
+Una vez que se define una interfaz, se puede implementar en una clase utilizando la palabra clave `implements` en C#. Aquí tienes un ejemplo de cómo se implementaría la interfaz `IReproductorMusica` en una clase `ReproductorMp3`:
+
+```
+public class ReproductorMp3 : IReproductorMusica
+{
+    public void Reproducir()
+    {
+        // Implementación del método Reproducir
+    }
+
+    public void Pausar()
+    {
+        // Implementación del método Pausar
+    }
+
+    public void Detener()
+    {
+        // Implementación del método Detener
+    }
+}
+```
+
+Al implementar una interfaz, la clase debe proporcionar una implementación para todos los miembros declarados en la interfaz. Esto garantiza que la clase cumpla con el contrato especificado por la interfaz y pueda utilizarse de manera intercambiable con otras clases que implementen la misma interfaz.
+
+Las interfaces son útiles en varios escenarios, incluyendo:
+
+1.  **Contratos de comportamiento**: Las interfaces definen un contrato común que las clases deben cumplir, lo que permite la interoperabilidad y el diseño basado en contratos.
+
+2.  **Polimorfismo**: Las interfaces permiten el polimorfismo, lo que significa que una instancia de una clase que implementa una interfaz puede ser tratada como una instancia de la interfaz. Esto facilita la modularidad y la extensibilidad del código.
+
+3.  **Separación de preocupaciones**: Las interfaces ayudan a separar la definición de un comportamiento de su implementación específica. Esto promueve una mejor organización y estructura en el código.
+
+En resumen, una interfaz en C# es una especificación de métodos, propiedades u otros miembros que una clase debe implementar. Proporciona un contrato común que define el comportamiento esperado sin especificar la implementación concreta de los métodos.
+
+## Objetivos del manejo de excepciones
+
+1. Reutilizable: en los diversos contextos en los que se emplee la abstracción, el manejo de errores puede ser totalmente distinto
+2. Robusto: el sistema deberá obligar al programador a gestionar el posible error de forma distinta al flujo general de la ejecución
+3. Extensible: en función del uso de una abstracción un error puede
+	1. Transformarse en otros errores
+	2. Manejarse corrigiendo el posible error
+
+**Excepciones**: una excepción es un evento que se produce en un momento de ejecución y que impide que la ejecución prosiga con su flujo normal, el mecanismo de manejo de excepción se basa en la separación de la abstracción que detecta el error y las distintas abstracciones que manejan la excepción.
+
+**Asertos**: los asertos son condiciones que se han de cumplir en la correcta ejecución de un programa. Estos no se deben utilizar para detectar errores en tiempo de ejecución ya que no son ni reutilizables ni extensibles. Los asertos se podrán utilizar para detectar aquellas situaciones que nunca deben ocurrir y en caso de que esto pase se trataría de un error que debemos solucionar. Estos asertos se deberan eliminar una vez solucionado el error que daba sentido a su utilización.
+
+## Genericidad
+
+La genericidad es la propiedad que permite construir abstracciones modelo para otras abstracciones. Esta ofrece dos principales beneficios:
+- Una mayor robusted
+- Un mayor rendimiento
+La genericidad acotada permite hacer que los tipos genéricos sean más específicos.
 
 
+# Tema 3: Fundamentos del paradigma funcional
 
+## Paradigma funcional
 
+Paradigma declarativo basado en la utilización de funciones que manejan datos inmutables, es decir que nunca se modifican y que en caso de querer cambiarlos se llama a una función que devuelve una copia del dato modificado pero sin cambiar el original.
 
+Un programa se puede definir como un conjunto de funciones invocándose entre si. Estas funciones no generan efectos secundarios ya que el valor de una expresión dependerá exclusivamente de los parametros de la misma.
 
+## Cálculo lambda
 
+Es un sistema formal basado en la definición de funciones y su aplicación, este se considera como el lenguaje universal más pequeño en computación, considerándose universal debido a que cualquier función computable puede ser expresada y evaluada utilizándolo.
 
+### Expresiones lambda
 
+En el cálculo lambda, una expresión se define como una abstracción en la que x es una variable (parámetro) y M es una expresión lambda (cuerpo de función). También se define como una aplicación MN donde M y N son expresiones lambda.
 
+**Ejemplo**
 
+- La función identidad f(x)=x puede representarse como λx.x
+- La función identidad f(x)=x+x puede representarse como λx.x+x (x+x no sería una expresión lambda pero el ejemplo trata de buscar la mayor simplicidad)
 
+### Aplicación (Reducción β)
 
+La aplicación de una función representaría su invocación y se puede definir del siguiente modo, ``(λx.M)N → M[x:=N] (o M[N/x])`` siendo x una variable y M y N expresiones lambda. ``M[x:=N]`` representa M donde todas las apariciones de x son sustituidas por N.
 
+Esta sustitución es lo que se denominaría reducción β, algunos ejemplos de su aplicación serían los siguientes:
+- (λx.x+x)3 →3+3
+- (λx.x) λy.y*2 → λy.y*2
 
+### Teorema de Church-Rosser
 
+En algunos terminos lambda se puede aplicar múltiples reducciones beta (``(λx.x) (λy.y*2) 3``). El teorema de Church-Rosser establece que el orden en el que se hagan estas reducciones no afecta al resultado final por lo que los paréntesis se usan de manera general para delimitar términos lambda y no indican preferencias.
 
+### Variables libres y ligadas
 
+En la abstracción λx.xy se dice que la variable ***x*** está ligada y la ***y*** es libre. En una sustitución solo se sustituyen las variables libres ``(λx.x(λx.2+x)y)M→x(λx.2+x)y[x:=M]=M(λx.2+x)y``, la segunda x no se sustituye ya que representa una variable distinta.
+
+Para evitar estos conflictos de nombre se creó la conversión α en la que todas las apariciones de una variable ligada en una misma abstracción se pueden renombrar a una nueva variable. 
+```
+Ej.
+(λx.x(λx.2+x)y)M λ (λx.x(λz.2+z)y)M → x(λz.2+z)y[x:=M] = M(λz.2+z)y
+λM(λx.2+x)y
+```
+
+### Curry-Howard
+
+El isomorfismo o correspondencia de Curry-Howard establece una relación directa entre problemas software y demostraciones matemáticas estableciendo una correspondencia entre la lógica y la computación siendo esta en el cálculo lambda una correspondencia directa.
+
+Esto implica que:
+- Exite una correspondencia entre tipos y proposiciones
+- Existe una correspondencia entre programas y evidencias que demuestran las proposición descrita por su tipo
+
+**------------------------------------------------------------------------------------------------------------**
+
+El *paradigma funcional* es el más utilizado para realizar demostraciones sobre programas porque
+
+1. Toda computación se puede expresar en cálculo lambda
+2. Hay traducción directa con la lógica
+
+Existen asistentes de demostradores que permiten demostrar propiedades de programas. Algunas de sus características son:
+
+- Se basa en leguajes funcionales
+- Añaden un lenguaje para realizar demostraciones mediante deducción natural
+- Permiten la extracción de programas: generan el código en distintos lenguajes una vez realizada la demostración
+
+## Funciones entidades de primer orden
+
+El paradigma funcional identifica las funciones como entidades de primer orden, igual que el resto de valores (funciones de primer orden). Por esto las funciones se consideran como un tipo más, pudiéndose instanciar variables de tipo función para, por ejemplo:
+
+- Asignar las estructuras de datos
+- Pasarlas como parámetros a otras funciones
+- Retornarlas como valores de otras funciones
+
+Una función se dice que es de orden superior si recibe alguna función como parámetro o retorna una función como resultado.
+
+## Funciones de orden superior
+
+Una función de orden superior, en el contexto de la programación funcional, es una función que puede recibir otras funciones como argumentos y/o devolver una función como resultado. En otras palabras, trata a las funciones como ciudadanos de primera clase, permitiendo su manipulación y uso como cualquier otro tipo de dato.
+
+En lenguajes de programación que admiten funciones de orden superior, las funciones se pueden tratar como valores y se pueden pasar como argumentos a otras funciones. Esto permite una mayor flexibilidad y expresividad en el diseño de programas, ya que las funciones pueden ser abstractas y parametrizadas, lo que permite crear comportamientos genéricos y reutilizables.
+
+Un ejemplo de está sería por ejemplo la función ``λf.( λx.f(fx))`` que vimos anteriormente.
+
+## Delegados
+
+En C# las funciones son entidades de primer orden gracias a los delegados. Estos constituyen un tipo que representa un método de instancia o de clase representando las variables de este tipo un modo de referenciar un método.
