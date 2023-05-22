@@ -41,8 +41,7 @@
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -108,7 +107,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Teoría/TPP Resumen.md",
+                "file": "Teoría/Examen 21-22.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -125,7 +124,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Teoría/TPP Resumen.md",
+                "file": "Teoría/Examen 21-22.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -148,7 +147,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Teoría/TPP Resumen.md"
+                "file": "Teoría/Examen 21-22.md"
               }
             }
           }
@@ -171,12 +170,14 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "fbf52a1485c21a7d",
+  "active": "2f9372ec0caeca46",
   "lastOpenFiles": [
+    "Examen 21-22.pdf",
+    "Teoría/TPP Resumen.md",
+    "TPP Resumen.pdf",
     "Excalidraw/Drawing 2023-05-22 15.53.22.excalidraw.md",
     "Teoría/Examen 21-22.md",
     "Excalidraw",
-    "Teoría/TPP Resumen.md",
     "Exámenes y Apuntes sin pasar a limpio/~$amenJunioTeoriaTPP-2022 .docx",
     "Teoría"
   ]
